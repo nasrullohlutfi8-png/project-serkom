@@ -151,7 +151,7 @@
     @yield('content')
 
     <!-- FOOTER -->
-    <footer class="bg-primary text-white mt-5">
+    <footer class="bg-primary text-white">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-5 col-md-6">

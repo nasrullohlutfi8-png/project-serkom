@@ -131,6 +131,16 @@
 
         @endif
 
+        <div class="text-center">
+            <div class="mt-4">
+                <a href="{{ route('landing') }}"
+                class="btn btn-outline-primary rounded-pill px-4">
+                    <i class="fas fa-arrow-left me-2"></i>
+                    Kembali ke Beranda
+                </a>
+            </div>
+        </div>
+
     </div>
 
 </section>
