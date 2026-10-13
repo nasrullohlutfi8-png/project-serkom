@@ -142,6 +142,9 @@
                     <li class="nav-item">
                         <a class="nav-link px-3 text-uppercase fw-semibold {{ request()->routeIs('galeri.*') ? 'active' : '' }}" href="{{ route('landing') }}#galeri">Galeri</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 text-uppercase fw-semibold {{ request()->routeIs('profil.*') ? 'active' : '' }}" href="{{ route('profil-saya') }}">Profil Pembuat</a>
+                    </li>
                 </ul>
             </div>
         </div>

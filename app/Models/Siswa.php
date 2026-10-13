@@ -4,22 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Concerns\HasUuids; 
-
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use App\Models\Kelas;
 
 class Siswa extends Model
 {
-    //
     use HasUuids;
-    protected $table = 'siswas'; // Sesuaikan jika nama tabel database-mu berbeda
+
+    protected $table = 'siswas';
 
     protected $fillable = [
         'nisn',
         'nama_siswa',
         'jenis_kelamin',
         'tahun_masuk',
+        'kelas_id',
     ];
-    
+
     protected $keyType = 'string';
 
     public $incrementing = false;
@@ -31,4 +32,8 @@ class Siswa extends Model
         });
     }
 
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class, 'kelas_id');
+    }
 }

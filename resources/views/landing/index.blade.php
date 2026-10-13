@@ -28,4 +28,7 @@
     {{-- Galeri --}}
     @include('landing.components.galeri')
 
+    @include('landing.components.siswa')
+
+
 @endsection

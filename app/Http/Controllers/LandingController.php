@@ -9,9 +9,15 @@ use App\Models\Guru;
 use App\Models\Pengumuman;
 use App\Models\Prestasi;
 use App\Models\Profil_Sekolah;
+use App\Models\Siswa;
 
 class LandingController extends Controller
 {
+    public function profil()
+    {
+        return view('landing.profil');
+    }
+    
     public function index()
     {
         // Data ekstrakurikuler
@@ -31,6 +37,10 @@ class LandingController extends Controller
 
         // Data guru
         $guru = Guru::latest()
+            ->get();
+
+        $siswa = Siswa::latest()
+            ->take(10)
             ->get();
 
         // Data galeri
@@ -61,6 +71,7 @@ class LandingController extends Controller
             'guru',
             'berita',
             'galeri',
+            'siswa',
             'jumlahSiswa',
             'jumlahGuru',
             'jumlahEskul',

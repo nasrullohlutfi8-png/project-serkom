@@ -17,6 +17,9 @@ use App\Http\Controllers\LandingController;
 Route::get('/', [LandingController::class, 'index'])
     ->name('landing');
 
+Route::get('/profil-saya', [LandingController::class, 'profil'])
+    ->name('profil-saya');
+
 Route::get('/berita-sekolah', [BeritaController::class, 'publicIndex'])
     ->name('berita.public.index');
 
@@ -40,7 +43,7 @@ Route::get('/profil-sekolah', [ProfilSekolahController::class, 'publicIndex'])
 
 
 Route::prefix('guru-sekolah')->name('guru.public.')->group(function () {
-
+ 
     // Semua guru
     Route::get('/', [GuruController::class, 'publicIndex'])
         ->name('index');

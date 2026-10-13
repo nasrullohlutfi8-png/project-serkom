@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nisn', 10);
             $table->string('nama_siswa', 40);
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
+            $table->foreignUuid('kelas_id')->nullable()->constrained('kelas')->onDelete('set null');
             $table->year('tahun_masuk');
             $table->timestamps();
         });
