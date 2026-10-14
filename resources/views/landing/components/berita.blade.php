@@ -42,7 +42,7 @@
 
                                     <img src="{{ asset('storage/' . $item->gambar) }}"
                                          class="w-100"
-                                         style="height:420px; object-fit:cover;"
+                                         style="height:420px;"
                                          alt="{{ $item->judul }}">
 
                                 @else

@@ -6,15 +6,13 @@
     <title>{{ $profilSekolah->nama_sekolah ?? 'Sekolah' }}</title>
 
     <link rel="icon" type="image/png" href="{{ asset('storage/' . $profilSekolah->logo) }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> --}}
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-
-        html {
-            scroll-behavior: smooth;
-        }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -34,13 +32,12 @@
         }
 
         .navbar-nav .nav-link {
-            color: #212529 !important;
-            transition: color 0.2s ease-in-out;
+            color: #212529;
         }
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-            color: #0d6efd !important;
+            color: #0d6efd;
         }
 
         .dropdown-item {
@@ -54,15 +51,7 @@
 
         .dropdown-item.active {
             background-color: #0d6efd;
-            color: white !important;
-        }
-
-        .dropdown-item.active i {
-            color: white !important;
-        }
-
-        .carousel-caption {
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            color: white ;
         }
 
         footer a {
@@ -85,7 +74,7 @@
 <body data-bs-spy="scroll" data-bs-target="#navbarMenu" data-bs-offset="150">
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ route('landing') }}#hero">
                 @if($profilSekolah && $profilSekolah->logo)
@@ -108,41 +97,44 @@
             <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item">
-                        <a class="nav-link px-3 text-uppercase fw-semibold {{ request()->routeIs('landing') ? 'active' : '' }}" href="{{ route('landing') }}#hero">Beranda</a>
+                        <!-- Hapus routeIs dan cukup gunakan #hero -->
+                        <a class="nav-link px-3 text-uppercase fw-semibold" href="#hero">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3 text-uppercase fw-semibold" href="{{ route('landing') }}#profil">Tentang</a>
+                        <a class="nav-link px-3 text-uppercase fw-semibold" href="#profil">Tentang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3 text-uppercase fw-semibold {{ request()->routeIs('guru.*') ? 'active' : '' }}" href="{{ route('landing') }}#guru">Guru</a>
+                        <!-- Hapus routeIs('guru.*') jika bagian guru ada di halaman landing yang sama -->
+                        <a class="nav-link px-3 text-uppercase fw-semibold" href="#guru">Guru</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3 text-uppercase fw-semibold {{ request()->routeIs('ekstrakulikuler.*') ? 'active' : '' }}" href="{{ route('landing') }}#ekstrakulikuler">Ekstrakurikuler</a>
+                        <a class="nav-link px-3 text-uppercase fw-semibold" href="#ekstrakulikuler">Ekstrakurikuler</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle px-3 text-uppercase fw-semibold {{ request()->routeIs('berita.*', 'pengumuman.*') ? 'active' : '' }}" href="#" id="informasiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle px-3 text-uppercase fw-semibold" href="#" id="informasiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Informasi
                         </a>
                         <ul class="dropdown-menu border-0 shadow" aria-labelledby="informasiDropdown">
                             <li>
-                                <a class="dropdown-item {{ request()->routeIs('berita.*') ? 'active' : '' }}" href="{{ route('landing') }}#berita">
+                                <a class="dropdown-item" href="#berita">
                                     <i class="fas fa-newspaper me-2"></i> Berita
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item {{ request()->routeIs('pengumuman.*') ? 'active' : '' }}" href="{{ route('landing') }}#pengumuman">
+                                <a class="dropdown-item" href="#pengumuman">
                                     <i class="fas fa-bullhorn me-2"></i> Pengumuman
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3 text-uppercase fw-semibold {{ request()->routeIs('prestasi.*') ? 'active' : '' }}" href="{{ route('landing') }}#prestasi">Prestasi</a>
+                        <a class="nav-link px-3 text-uppercase fw-semibold" href="#prestasi">Prestasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3 text-uppercase fw-semibold {{ request()->routeIs('galeri.*') ? 'active' : '' }}" href="{{ route('landing') }}#galeri">Galeri</a>
+                        <a class="nav-link px-3 text-uppercase fw-semibold" href="#galeri">Galeri</a>
                     </li>
                     <li class="nav-item">
+                        <!-- Ini dibiarkan pakai route jika "Profil Pembuat" memang beda halaman -->
                         <a class="nav-link px-3 text-uppercase fw-semibold {{ request()->routeIs('profil.*') ? 'active' : '' }}" href="{{ route('profil-saya') }}">Profil Pembuat</a>
                     </li>
                 </ul>
@@ -219,6 +211,7 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> --}}
 </body>
 </html>

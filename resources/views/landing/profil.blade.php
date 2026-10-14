@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="container my-5">
+    <div class="container mb-5" style="margin-top: 120px">
     <div class="card border-0 shadow-lg overflow-hidden rounded-4">
         <!-- Top Accent Bar -->
         <div class="bg-primary p-2"></div>

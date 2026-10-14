@@ -22,7 +22,7 @@ class LandingController extends Controller
     {
         // Data ekstrakurikuler
         $ekstrakulikuler = Ekstrakulikuler::latest()
-            ->take(6)
+            ->take(3)
             ->get();
 
         // Data prestasi
@@ -45,7 +45,7 @@ class LandingController extends Controller
 
         // Data galeri
         $galeri = Galeri::latest('tanggal')
-            ->take(6)
+            ->take(3)
             ->get();
 
         // Data berita yang sudah dipublish
